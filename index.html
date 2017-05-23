@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" ng-app="peliseoi">
+
 <head>
     <meta charset="UTF-8">
     <title>Pelis EOI</title>
@@ -10,156 +11,157 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
-   <nav>
-       <div class="container">
+    <nav>
+        <div class="container">
             <div class="row flex-center">
-              <div class="col-lg-2 flex-center">
-                  <img src="img/Logo.png" alt="">
-              </div>
-              <div id="menu" class="col-lg-6 flex-between">
-                  <a href="">Categorías</a>
-                  <a href="">Mejor valoradas</a>
-                  <a href="">Populares ahora</a>
-                  <a href="">Próximamente</a>
-              </div>
-              <div class="col-lg-4">
-                  <div class="buscar">
-    
-                  </div>
-              </div>
+                <div class="col-lg-2 flex-center">
+                    <img src="img/Logo.png" alt="">
+                </div>
+                <div id="menu" class="col-lg-6 flex-between">
+                    <a href="">Categorías</a>
+                    <a href="">Mejor valoradas</a>
+                    <a href="">Populares ahora</a>
+                    <a href="">Próximamente</a>
+                </div>
+                <div class="col-lg-4">
+                    <div class="buscar">
+
+                    </div>
+                </div>
             </div>
-       </div>
-   </nav>
-   
-   <main>
-       <section>
-           <div class="container">
-               <div class="row">
-                   <div class="col-lg-3" id="sidebar">
-                       <div class="encabezado row">
-                           <div class="col-lg-2">
-                               <div class="fa fa-sliders fa-2x"></div>
-                           </div>
-                           <div class="col-lg-3">Filtrar</div>
-                           <div class="col-lg-4 col-lg-offset-3 borrar">Borrar</div>
-                       </div>
-                       <aside>
-                           <div class="row">
-                               <div class="col-lg-2 cat">Año</div>
-                               <div class="col-lg-6 col-lg-offset-4">
-                                   <div class="rodea">
-                                       <div class="catvalue">1990-1995</div>
-                                   </div>
-                               </div>
-                           </div>
-                           <div>Barra de filtrado</div>
-                       </aside>
-                       <aside>
-                           <div class="row">
-                               <div class="col-lg-9 cat">Valoración IMDB</div>
-                               <div class="col-lg-3">
-                                   <div class="rodea">
-                                       <div class="catvalue">0-5</div>
-                                   </div>
-                               </div>
-                           </div>
-                           <div>Barra de filtrado</div>
-                       </aside>
-                       <aside>
-                           <div class="row">
-                               <div class="col-lg-9 cat">Rotten Tomatoes - CS</div>
-                               <div class="col-lg-3">
-                                   <div class="rodea">
-                                       <div class="catvalue">0-50</div>
-                                   </div>
-                               </div>
-                           </div>
-                           <div>Barra de filtrado</div>
-                       </aside>
-                       <aside>
-                           <div class="row">
-                               <div class="col-lg-9 cat">Rotten Tomatoes - AS</div>
-                               <div class="col-lg-3">
-                                   <div class="rodea">
-                                       <div class="catvalue">0-50</div>
-                                   </div>
-                               </div>
-                           </div>
-                           <div>Barra de filtrado</div>
-                       </aside>
-                       <aside>
-                           <div class="cat">
-                               <p>Géneros</p>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Acción</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Aventura</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Animación</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Comedia</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Crimen</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Documental</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Drama</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Familiar</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Fantasía</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Históricas</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Horror</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Música</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Misterio</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Romance</button>
-                                   </div>
-                               </div>
-                               <div class="row">
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">Ficción</button>
-                                   </div>
-                                   <div class="col-md-6">
-                                         <button type="button" class="btn btn-default btn-block">TV Movies</button>
-                                   </div>
-                               </div>
-                           </div>
-                       </aside>
-                   </div>
-                   <div class="col-lg-9">
-                       <div class="encabezado row">
+        </div>
+    </nav>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3" id="sidebar">
+                        <div class="encabezado row">
+                            <div class="col-lg-2">
+                                <div class="fa fa-sliders fa-2x"></div>
+                            </div>
+                            <a href="#" class="col-lg-3">Filtrar</a>
+                            <a href="#" class="col-lg-4 col-lg-offset-3 borrar">Borrar</a>
+                        </div>
+                        <aside>
+                            <div class="row">
+                                <div class="col-lg-2 cat">Año</div>
+                                <div class="col-lg-6 col-lg-offset-4">
+                                    <div class="rodea">
+                                        <div class="catvalue">1990-1995</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Barra de filtrado</div>
+                        </aside>
+                        <aside>
+                            <div class="row">
+                                <div class="col-lg-9 cat">Valoración IMDB</div>
+                                <div class="col-lg-3">
+                                    <div class="rodea">
+                                        <div class="catvalue">0-5</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Barra de filtrado</div>
+                        </aside>
+                        <aside>
+                            <div class="row">
+                                <div class="col-lg-9 cat">Rotten Tomatoes - CS</div>
+                                <div class="col-lg-3">
+                                    <div class="rodea">
+                                        <div class="catvalue">0-50</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Barra de filtrado</div>
+                        </aside>
+                        <aside>
+                            <div class="row">
+                                <div class="col-lg-9 cat">Rotten Tomatoes - AS</div>
+                                <div class="col-lg-3">
+                                    <div class="rodea">
+                                        <div class="catvalue">0-50</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Barra de filtrado</div>
+                        </aside>
+                        <aside>
+                            <div class="cat">
+                                <p>Géneros</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Acción</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Aventura</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Animación</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Comedia</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Crimen</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Documental</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Drama</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Familiar</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Fantasía</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Históricas</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Horror</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Música</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Misterio</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Romance</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">Ficción</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-default btn-block">TV Movies</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="encabezado row">
                             <div class="col-lg-6 ">
                                 <div>
                                     <p><span class="encontradas">1500&nbsp;</span>películas encontradas</p>
@@ -168,27 +170,41 @@
                             <div class="col-lg-6">
                                 <div class="ordenar">Ordenar</div>
                             </div>
-                       </div>
-                       <div class="fila3">
-                           <div class="row">
-                               <div class="col-lg-4">
-                                   <div class="caratula"></div>
-                               </div>
-                               <div class="col-lg-4">
-                                   <div class="caratula"></div>
-                               </div>
-                               <div class="col-lg-4">
-                                   <div class="caratula"></div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="fila3"></div>
-                   </div>
-               </div>
-           </div>
-       </section>
-   </main>
-    
-    
+                        </div>
+                        <div class="zonapelis">
+                            <div class="row">
+                                <div ng-repeat="peli in pelis track by $index" class="col-lg-4">
+                                    <div class="caratula"></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="caratula"></div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="caratula"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filapelis"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <!-- Services -->
+
+    <!-- Components -->
+    <script src="js/factories/moviedbFactory.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/homeController.js"></script>
+
+
 </body>
+
 </html>
