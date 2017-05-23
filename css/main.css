@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+}
+
+nav{
+    height: 68px;
+    background-color: #1b2126;
+    display: flex;
+    align-items: center;
+}
+
+aside{
+    padding-right: 15px;
+}
+
+#menu{
+    padding-right: 66px;
+}
+
+#menu a{
+    color:  #b2b5b8;
+    text-decoration: none;
+}
+
+#sidebar{
+    border-right: 1px solid #e9ecee;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+}
+
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nopadding-left{
+    padding-left: 0;
+}
+
+.encabezado{
+    height: 68px;
+    display: flex;
+    align-items: center;
+    color:  #5c6269;
+}
+.borrar{
+    color:  #f3644f;
+    float: right;
+    padding-right: 30px;
+}
+.buscar{
+    color:  #1b2126;
+    border-radius: 6px;
+    background-color:  #5c6269;
+    height: 38px;
+}
+
+.cat{
+    font-weight: 600;
+    color:  #1b2126;
+}
+
+.catvalue{
+    font-weight: 700;
+    font-size: 14px;
+    color:  #b2b5b8;
+    float: right;
+}
+
+.encontradas{
+    font-weight: 600;
+    color:  #1b2126;
+}
+
+.ordenar{
+    color:  #5c6269;
+    float:right;
+}
+
+.slider{
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.caratula{
+    height: 403px;
+    width: 269px;
+    background-color: darkgray;
+}
+
