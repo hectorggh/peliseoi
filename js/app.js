@@ -1,5 +1,5 @@
 (function() {
     'use strict';
-    angular.module('peliseoi', []);
+    angular.module('peliseoi', ['rzModule','ngYoutubeEmbed']);
 
 })();

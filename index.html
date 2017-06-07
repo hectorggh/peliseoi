@@ -5,29 +5,39 @@
     <meta charset="UTF-8">
     <title>Pelis EOI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.2.2/rzslider.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
-<body>
+<body ng-controller="homeController">
     <nav>
         <div class="container">
             <div class="row flex-center">
                 <div class="col-lg-2 flex-center">
                     <img src="img/Logo.png" alt="">
                 </div>
-                <div id="menu" class="col-lg-6 flex-between">
-                    <a href="">Categorías</a>
-                    <a href="">Mejor valoradas</a>
-                    <a href="">Populares ahora</a>
-                    <a href="">Próximamente</a>
+                <div id="menu" class="col-lg-5 flex-between">
+                    <a href="" ng-click="getDiscover()">Descubre</a>
+                    <a href="" ng-click="getPopular()">Populares ahora</a>
+                    <a href="" ng-click="getUpcoming()">Próximamente</a>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-lg-offset-1">
                     <div class="buscar">
-
+                        <div class="left">
+                            <img src="img/search.png" alt="">
+                        </div>
+                        <div class="right">
+                            <input class="barra" name="busqueda" ng-focus="search(busqueda)" ng-model="search" type="text" placeholder="Encuentra tu pelicula favorita">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,118 +53,103 @@
                             <div class="col-lg-2">
                                 <div class="fa fa-sliders fa-2x"></div>
                             </div>
-                            <a href="#" class="col-lg-3">Filtrar</a>
-                            <a href="#" class="col-lg-4 col-lg-offset-3 borrar">Borrar</a>
+                            <span class="col-lg-3">Filtrar</span>
+                            <a href="" ng-click="borrar()" class="col-lg-4 col-lg-offset-3 borrar">Borrar</a>
                         </div>
                         <aside>
-                            <div class="row">
+                            <div class="row margen20">
                                 <div class="col-lg-2 cat">Año</div>
                                 <div class="col-lg-6 col-lg-offset-4">
                                     <div class="rodea">
-                                        <div class="catvalue">1990-1995</div>
+                                        <div class="catvalue">
+                                            <p>{{yearSliderUpdated}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div>Barra de filtrado</div>
+                            <div class="row">
+                            </div>
+                            <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider>
                         </aside>
                         <aside>
-                            <div class="row">
+                            <div class="row margen20">
                                 <div class="col-lg-9 cat">Valoración IMDB</div>
                                 <div class="col-lg-3">
                                     <div class="rodea">
-                                        <div class="catvalue">0-5</div>
+                                        <div class="catvalue">
+                                            <p>{{valSliderUpdated}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div>Barra de filtrado</div>
+                            <rzslider rz-slider-model="slider1.minValue" rz-slider-high="slider1.maxValue" rz-slider-options="slider1.options"></rzslider>
                         </aside>
+
                         <aside>
-                            <div class="row">
-                                <div class="col-lg-9 cat">Rotten Tomatoes - CS</div>
-                                <div class="col-lg-3">
-                                    <div class="rodea">
-                                        <div class="catvalue">0-50</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>Barra de filtrado</div>
-                        </aside>
-                        <aside>
-                            <div class="row">
-                                <div class="col-lg-9 cat">Rotten Tomatoes - AS</div>
-                                <div class="col-lg-3">
-                                    <div class="rodea">
-                                        <div class="catvalue">0-50</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>Barra de filtrado</div>
-                        </aside>
-                        <aside>
-                            <div class="cat">
+                            <div class="cat margen20">
                                 <p>Géneros</p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Acción</button>
+                                        <button ng-click="getCat(28)" type="button" class="btn btn-default btn-block">Acción</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Aventura</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Animación</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Comedia</button>
+                                        <button ng-click="getCat(12)" type="button" class="btn btn-default btn-block">Aventura</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Crimen</button>
+                                        <button ng-click="getCat(16)" type="button" class="btn btn-default btn-block">Animación</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Documental</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Drama</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Familiar</button>
+                                        <button ng-click="getCat(35)" type="button" class="btn btn-default btn-block">Comedia</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Fantasía</button>
+                                        <button ng-click="getCat(80)" type="button" class="btn btn-default btn-block">Crimen</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Históricas</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Horror</button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Música</button>
+                                        <button ng-click="getCat(99)" type="button" class="btn btn-default btn-block">Documental</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Misterio</button>
+                                        <button ng-click="getCat(18)" type="button" class="btn btn-default btn-block">Drama</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Romance</button>
+                                        <button ng-click="getCat(10751)" type="button" class="btn btn-default btn-block">Familiar</button>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">Ficción</button>
+                                        <button ng-click="getCat(14)" type="button" class="btn btn-default btn-block">Fantasía</button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" class="btn btn-default btn-block">TV Movies</button>
+                                        <button ng-click="getCat(36)" type="button" class="btn btn-default btn-block">Históricas</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(27)" type="button" class="btn btn-default btn-block">Terror</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(10402)" type="button" class="btn btn-default btn-block">Música</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(9648)" type="button" class="btn btn-default btn-block">Misterio</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(10749)" type="button" class="btn btn-default btn-block">Romance</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(878)" type="button" class="btn btn-default btn-block">Ficción</button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button ng-click="getCat(10770)" type="button" class="btn btn-default btn-block">TV Movies</button>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +159,7 @@
                         <div class="encabezado row">
                             <div class="col-lg-6 ">
                                 <div>
-                                    <p><span class="encontradas">1500&nbsp;</span>películas encontradas</p>
+                                    <p><span class="encontradas">{{pelis.length}}&nbsp;</span>películas encontradas</p>
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -173,26 +168,105 @@
                         </div>
                         <div class="zonapelis">
                             <div class="row">
-                                <div ng-repeat="peli in pelis track by $index" class="col-lg-4">
-                                    <div class="caratula"></div>
+                                <div ng-repeat="peli in pelis | filter:search" class="col-lg-4">
+                                    <a ng-click="getPeli(peli)" data-toggle="modal" data-target="#myModal" href="">
+                                        <img class="caratula" src="https://image.tmdb.org/t/p/w500{{peli.poster_path}}" alt="">
+                                    </a>
                                 </div>
                                 <div class="col-lg-4">
-                                    <div class="caratula"></div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="caratula"></div>
+                                    <a href="" ng-click="next()">
+                                        <img class="next" src="img/right-arrow.png" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="filapelis"></div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script src="libs/angular.min.js"></script>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-ficha">
+
+            <!-- Modal content-->
+            <div class="modal-content ficha">
+                <div class="modal-header">
+                    <a class="right" data-dismiss="modal" href="">
+                        <img src="img/cancel.png" alt="">
+                    </a>
+                    <p class="title">{{peli.title}}&nbsp;<span class="año">{{peli.release_date}}</span></p>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img class="caratula" src="https://image.tmdb.org/t/p/w500{{peli.poster_path}}" alt="">
+                            <p class="subs">Subs: <span class="idiomas">es en it</span></p>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="info">
+                                <div class="subtitulo">Sinopsis <span class="duracion pull-right">{{peli.runtime}}min</span></div>
+                                <div class="cat">
+                                    <div><span class="label label-default" ng-repeat="genero in peli.genres">{{genero.name}}</span>
+                                        <span class="puntuacion pull-right"> <i class="fa fa-star-o" aria-hidden="true"></i>{{score.imdbRating}}<img class="score-icon" src="img/Rotten-Tomatoes.png" alt="">{{score.Ratings[1].Value}} <img class="score-icon" src="img/Metacritic.png" alt="">{{score.Metascore}}</span>
+                                    </div>
+                                </div>
+                                <div class="sinopsis">
+                                    <p>{{peli.overview}}</p>
+                                </div>
+                            </div>
+                            <div class="trailer">
+                                <div class="subtitulo">Trailer</div>
+                                <div class="video">
+                                    <ng-youtube-embed video="trailer" width="100%" disablekb="true">
+                                    </ng-youtube-embed>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer modal-footer">
+                    <p class="similares">Películas similares</p>
+                    <div class="row">
+                        <div ng-repeat="peli in pelis | orderBy:random | limitTo:4" class="col-md-3">
+                            <a id="scrollme" ng-click="getPeli(peli)" data-toggle="modal" href="">
+                                <img class="caratulasimilar" src="https://image.tmdb.org/t/p/w500{{peli.poster_path}}" alt="">
+                            </a>
+                            <div class="subtitulo centrado">{{peli.title}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="libs/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
     <script src="libs/angular-route.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/6.2.2/rzslider.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/angular.youtube-embed/1.7.10/ng-youtube-embed.min.js"></script>
+    <script>
+        function runScroll() {
+            scrollTo(document.body, 0, 600);
+        }
+        var scrollme;
+        scrollme = document.querySelector("#scrollme");
+        scrollme.addEventListener("click", runScroll, false);
+
+        function scrollTo(element, to, duration) {
+            if (duration <= 0) return;
+            var difference = to - element.scrollTop;
+            var perTick = difference / duration * 10;
+
+            setTimeout(function () {
+                element.scrollTop = element.scrollTop + perTick;
+                if (element.scrollTop == to) return;
+                scrollTo(element, to, duration - 10);
+            }, 10);
+        }
+    </script>
 
     <!-- App -->
     <script src="js/app.js"></script>
