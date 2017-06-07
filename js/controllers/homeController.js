@@ -24,6 +24,12 @@
             $scope.valSliderUpdated = $scope.slider1.minValue + ' - ' + $scope.slider1.maxValue;
             moviedbFactory.filter($scope.slider.minValue, $scope.slider.maxValue, $scope.slider1.minValue, $scope.slider1.maxValue).then(pelisLoaded);
         };
+        $scope.loadMore = function () {
+            var last = $scope.pelis[$scope.pelis.length - 1];
+            for (var i = 1; i <= 8; i++) {
+                $scope.pelis.push(last + i);
+            }
+        };
         /////////////////////// Variables ////////////////////////////////////////////////
 
         $scope.peli = [];
